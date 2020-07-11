@@ -1,11 +1,13 @@
 import React from 'react';
 import styles from './quoteBox.module.css';
 
-const QuoteBox = () => {
+const QuoteBox = (props) => {
   return (
     <div className={styles.quoteBox} id='quote-box'>
       <h1>Quote</h1>
-      <p>To live is to suffer</p>
+      <p id='text'>{props.quoteText}</p>
+      <span id='author'>{props.quoteAuthor}</span>
+      <button>Next</button>
     </div>
   );
 };
