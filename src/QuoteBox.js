@@ -7,7 +7,7 @@ const QuoteBox = (props) => {
       <h1>Quote</h1>
       <p id='text'>{props.quoteText}</p>
       <span id='author'>{props.quoteAuthor}</span>
-      <button>Next</button>
+      <button onClick={props.click}>Next</button>
     </div>
   );
 };

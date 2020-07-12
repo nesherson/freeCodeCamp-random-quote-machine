@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import QuoteBox from './QuoteBox';
 import './App.css';
 
-let counter = 0;
-
 const App = () => {
   const [quotes, setQuotes] = useState([]);
+  const [randomQuote, setRandomQuote] = useState({
+    quote: 'To live is to suffer.',
+    author: 'N.N.',
+  });
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
@@ -18,7 +20,6 @@ const App = () => {
   }, []);
 
   const randomNumber = Math.floor(Math.random() * quotes.length);
-  const randomQuote = quotes[randomNumber];
 
   return (
     <div className='main'>
@@ -26,6 +27,9 @@ const App = () => {
         <QuoteBox
           quoteText={randomQuote.quote}
           quoteAuthor={randomQuote.author}
+          click={() => {
+            setRandomQuote(quotes[randomNumber]);
+          }}
         />
       ) : (
         ''
