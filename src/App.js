@@ -2,12 +2,16 @@ import React, { useState, useEffect } from 'react';
 import QuoteBox from './QuoteBox';
 import './App.css';
 
+function getRandomNumber(length) {
+  return Math.floor(Math.random() * length);
+}
+
 const App = () => {
   const [quotes, setQuotes] = useState([]);
-  const [randomQuote, setRandomQuote] = useState({
-    quote: 'To live is to suffer.',
-    author: 'N.N.',
-  });
+  const [randomNumber, setRandomNumber] = useState(
+    getRandomNumber(quotes.length)
+  );
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
@@ -19,21 +23,17 @@ const App = () => {
     fetchData();
   }, []);
 
-  const randomNumber = Math.floor(Math.random() * quotes.length);
+  const quote = quotes.length && quotes[randomNumber];
 
   return (
     <div className='main'>
-      {randomQuote !== undefined ? (
-        <QuoteBox
-          quoteText={randomQuote.quote}
-          quoteAuthor={randomQuote.author}
-          click={() => {
-            setRandomQuote(quotes[randomNumber]);
-          }}
-        />
-      ) : (
-        ''
-      )}
+      <QuoteBox
+        quoteText={quote.quote}
+        quoteAuthor={quote.author}
+        click={() => {
+          setRandomNumber(getRandomNumber(quotes.length));
+        }}
+      />
     </div>
   );
 };
