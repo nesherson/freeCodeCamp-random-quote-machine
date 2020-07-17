@@ -1,8 +1,8 @@
 .quoteBox {
   width: 500px;
-  min-height: 250px;
+  min-height: 230px;
   border-radius: 5px;
-  padding: 20px 30px;
+  padding: 20px 45px;
   text-align: center;
   background-color: #fff;
 }
@@ -14,11 +14,43 @@
 .quoteText {
   margin: 15px 0;
   font-size: 1.8rem;
+  color: inherit;
 }
 
 .quoteAuthor {
   text-align: right;
   font-size: 1.2rem;
   font-weight: 300;
-  margin: 20px 0;
+  margin: 30px 0;
+}
+
+.link {
+  display: inline-block;
+  background-color: rgb(155, 89, 182);
+  border-radius: 3px;
+  margin: 3px;
+}
+
+.link:hover {
+  opacity: 0.9;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 7px 17px;
+  background-color: rgb(155, 89, 182);
+  border: 0;
+  border-radius: 3px;
+  margin: 3px;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.btn:hover {
+  opacity: 0.9;
 }

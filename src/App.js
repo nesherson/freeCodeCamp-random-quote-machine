@@ -6,11 +6,21 @@ function getRandomNumber(length) {
   return Math.floor(Math.random() * length);
 }
 
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
 const App = () => {
   const [quotes, setQuotes] = useState([]);
   const [randomNumber, setRandomNumber] = useState(
     getRandomNumber(quotes.length)
   );
+  const [randomColor, setRandomColor] = useState(getRandomColor());
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,12 +36,19 @@ const App = () => {
   const quote = quotes.length && quotes[randomNumber];
 
   return (
-    <div className={styles.main}>
+    <div
+      className={styles.main}
+      style={{
+        backgroundColor: randomColor,
+      }}
+    >
       <QuoteBox
+        randomColor={randomColor}
         quoteText={quote.quote}
         quoteAuthor={quote.author}
         click={() => {
           setRandomNumber(getRandomNumber(quotes.length));
+          setRandomColor(getRandomColor());
         }}
       />
     </div>

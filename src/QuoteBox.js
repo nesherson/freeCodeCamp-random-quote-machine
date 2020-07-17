@@ -1,18 +1,48 @@
 import React from 'react';
 import styles from './quoteBox.module.css';
+import TwitterLogo from './TwitterLogo';
+import TumblrLogo from './TumblrLogo';
 
-const QuoteBox = (props) => {
+const QuoteBox = ({ randomColor, quoteText, quoteAuthor, click }) => {
   return (
-    <div className={styles.quoteBox} id='quote-box'>
+    <div
+      className={styles.quoteBox}
+      style={{
+        color: randomColor,
+      }}
+      id='quote-box'
+    >
       <p id='text' className={styles.quoteText}>
         <span className={styles.quote}>"</span>
-        {props.quoteText}
+        {quoteText}
       </p>
       <div className={styles.quoteAuthor}>
-        <span id='author'>- {props.quoteAuthor}</span>
+        <span id='author'>- {quoteAuthor}</span>
       </div>
-      <div>
-        <button onClick={props.click}>New Quote</button>
+      <div className={styles.buttons}>
+        <div>
+          <a
+            href=''
+            className={styles.link}
+            style={{ backgroundColor: randomColor }}
+          >
+            <TwitterLogo />
+          </a>
+          <a
+            href=''
+            className={styles.link}
+            style={{ backgroundColor: randomColor }}
+          >
+            <TumblrLogo />
+          </a>
+        </div>
+        <button
+          className={styles.btn}
+          onClick={click}
+          style={{ backgroundColor: randomColor }}
+        >
+          New Quote
+        </button>
       </div>
     </div>
   );
