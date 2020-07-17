@@ -54,3 +54,20 @@
 .btn:hover {
   opacity: 0.9;
 }
+
+.footer {
+  text-align: center;
+  padding: 10px;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.footer a {
+  text-decoration: none;
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+.footer a:visited {
+  color: #fff;
+}

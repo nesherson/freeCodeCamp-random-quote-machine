@@ -40,6 +40,7 @@ const App = () => {
       className={styles.main}
       style={{
         backgroundColor: randomColor,
+        color: randomColor,
       }}
     >
       <QuoteBox
