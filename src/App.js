@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import QuoteBox from './QuoteBox';
-import './App.css';
+import styles from './App.module.css';
 
 function getRandomNumber(length) {
   return Math.floor(Math.random() * length);
@@ -26,7 +26,7 @@ const App = () => {
   const quote = quotes.length && quotes[randomNumber];
 
   return (
-    <div className='main'>
+    <div className={styles.main}>
       <QuoteBox
         quoteText={quote.quote}
         quoteAuthor={quote.author}

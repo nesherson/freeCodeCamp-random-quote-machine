@@ -4,10 +4,16 @@ import styles from './quoteBox.module.css';
 const QuoteBox = (props) => {
   return (
     <div className={styles.quoteBox} id='quote-box'>
-      <h1>Quote</h1>
-      <p id='text'>{props.quoteText}</p>
-      <span id='author'>{props.quoteAuthor}</span>
-      <button onClick={props.click}>Next</button>
+      <p id='text' className={styles.quoteText}>
+        <span className={styles.quote}>"</span>
+        {props.quoteText}
+      </p>
+      <div className={styles.quoteAuthor}>
+        <span id='author'>- {props.quoteAuthor}</span>
+      </div>
+      <div>
+        <button onClick={props.click}>New Quote</button>
+      </div>
     </div>
   );
 };
