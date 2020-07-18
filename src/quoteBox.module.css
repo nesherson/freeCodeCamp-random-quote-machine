@@ -15,6 +15,7 @@
   margin: 15px 0;
   font-size: 1.8rem;
   color: inherit;
+  transition: opacity 1s;
 }
 
 .quoteAuthor {
@@ -29,6 +30,13 @@
   background-color: rgb(155, 89, 182);
   border-radius: 3px;
   margin: 3px;
+}
+
+.link svg {
+  width: 22px;
+  height: 22px;
+  padding: 6px 8px;
+  fill: #fff;
 }
 
 .link:hover {
@@ -59,13 +67,12 @@
   text-align: center;
   padding: 10px;
   color: #fff;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .footer a {
   text-decoration: none;
   margin-left: 5px;
-  font-weight: bold;
 }
 
 .footer a:visited {

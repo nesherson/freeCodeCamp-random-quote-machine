@@ -1,7 +1,8 @@
 import React from 'react';
+import ShareQuoteBtn from './ShareQuoteBtn';
 import styles from './quoteBox.module.css';
-import TwitterLogo from './TwitterLogo';
-import TumblrLogo from './TumblrLogo';
+import { ReactComponent as TwitterIcon } from './icons/logo-twitter.svg';
+import { ReactComponent as TumblrIcon } from './icons/logo-tumblr.svg';
 
 const QuoteBox = ({ randomColor, quoteText, quoteAuthor, click }) => {
   return (
@@ -13,7 +14,7 @@ const QuoteBox = ({ randomColor, quoteText, quoteAuthor, click }) => {
         }}
         id='quote-box'
       >
-        <p id='text' className={styles.quoteText} style={{ opacity: '1' }}>
+        <p id='text' className={styles.quoteText}>
           <span className={styles.quote}>"</span>
           {quoteText}
         </p>
@@ -22,20 +23,20 @@ const QuoteBox = ({ randomColor, quoteText, quoteAuthor, click }) => {
         </div>
         <div className={styles.buttons}>
           <div>
-            <a
-              href=''
-              className={styles.link}
-              style={{ backgroundColor: randomColor }}
-            >
-              <TwitterLogo />
-            </a>
-            <a
-              href=''
-              className={styles.link}
-              style={{ backgroundColor: randomColor }}
-            >
-              <TumblrLogo />
-            </a>
+            <ShareQuoteBtn
+              title='Tweet this quote!'
+              link={`https://www.twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text="${quoteText}"%20 ${quoteAuthor}`}
+              icon={<TwitterIcon />}
+              color={randomColor}
+              style={styles.link}
+            />
+            <ShareQuoteBtn
+              title='Post this quote on Tumblr!'
+              link='https://www.tumblr.com'
+              icon={<TumblrIcon />}
+              color={randomColor}
+              style={styles.link}
+            />
           </div>
           <button
             className={styles.btn}
@@ -49,7 +50,11 @@ const QuoteBox = ({ randomColor, quoteText, quoteAuthor, click }) => {
       <div className={styles.footer}>
         <span>
           by
-          <a target='_blank' href='https://github.com/nesherson'>
+          <a
+            target='_blank'
+            rel='noopener noreferrer'
+            href='https://github.com/nesherson'
+          >
             nesherson
           </a>
         </span>
